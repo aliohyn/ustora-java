@@ -1,0 +1,29 @@
+<th:block layout:decorate="~{admin/layouts/fullPageLayout}">
+
+    <div layout:fragment="content" class="box box-primary edit-form-box">
+        <div class="box-header with-border">
+            <h3 class="box-title">Section</h3>
+        </div>
+        <form role="form" th:action="'/admin/section/' + ${action}" method="post" enctype="multipart/form-data">
+            <div class="box-body">
+                <div th:if="${section}" class="form-group">
+                    <label>Id</label>
+                    <div th:text="${section.Id}"></div>
+                    <input type="hidden" name="id" th:value="${section.Id}" />
+                </div>
+
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" th:value="${section?.name}" name="name" class="form-control" placeholder="Name" />
+                </div>
+            </div>
+
+
+            <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Save item</button>
+                <button th:if="${section}" type="submit" name="action" value="delete" class="btn btn-primary">Delete item</button>
+            </div>
+        </form>
+    </div>
+
+</th:block>

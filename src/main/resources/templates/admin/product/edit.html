@@ -1,0 +1,74 @@
+<th:block layout:decorate="~{admin/layouts/fullPageLayout}">
+
+    <div layout:fragment="content" class="box box-primary edit-form-box">
+        <div class="box-header with-border">
+            <h3 class="box-title">Product</h3>
+        </div>
+        <form role="form" th:action="'/admin/product/' + ${action}" method="post" enctype="multipart/form-data">
+            <div class="box-body">
+                <div th:if="${product}" class="form-group">
+                    <label>Id</label>
+                    <div th:text="${product.Id}"></div>
+                    <input type="hidden" name="id" th:value="${product.Id}" />
+                </div>
+
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" th:value="${product?.name}" name="name" class="form-control" placeholder="Name" />
+                </div>
+
+                <div class="form-group">
+                    <label>Price</label>
+                    <input type="text" th:value="${product?.price}" name="price" class="form-control" placeholder="Price" />
+                </div>
+
+                <div class="form-group">
+                    <label>Old price</label>
+                    <input type="text" th:value="${product?.oldPrice}" name="oldPrice" class="form-control" placeholder="Old price" />
+                </div>
+
+                <div th:if="${brands != null}" class="form-group">
+                    <label>Brand</label>
+                    <select name="brand" class="form-control">
+                        <option th:each="item : ${brands}" th:value="${item.id}" th:text="${item.name}"></option>
+                    </select>
+                </div>
+
+                <div th:if="${sections != null}" class="form-group">
+                    <label>Section</label>
+                    <select name="section" class="form-control">
+                        <option th:each="item : ${sections}" th:value="${item.id}" th:text="${item.name}"></option>
+                    </select>
+                </div>
+
+                <div class="checkbox">
+                    <label>
+                        <input name="topSellerShow" type="checkbox" th:checked="${product?.topSellerShow}" /> Show in top seller?
+                    </label>
+                </div>
+
+                <div class="checkbox">
+                    <label>
+                        <input name="newShow" type="checkbox" th:checked="${product?.newShow}" /> Show in latest?
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label>Product image</label>
+                    <div th:if="${product?.image}">
+                        <img style="max-width: 240px; max-height: 240px;" th:src="'/upload/product/' + ${product?.image}" />
+                        <input type="hidden" name="image" th:value="${product?.image}" />
+                        <br/>
+                        <br/>
+                    </div>
+                    <input type="file" name="file" />
+                </div>
+            </div>
+            <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Save item</button>
+                <button th:if="${product}" type="submit" name="action" value="delete" class="btn btn-primary">Delete item</button>
+            </div>
+        </form>
+    </div>
+
+</th:block>

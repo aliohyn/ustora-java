@@ -1,0 +1,35 @@
+<th:block layout:decorate="~{admin/layouts/fullPageLayout}">
+
+    <div layout:fragment="content" class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Sections</h3>
+                </div>
+                <div class="box-body">
+                    <a href="/admin/section/addSection" class="btn btn-primary">Add new section</a>
+                    <br/>
+                    <br/>
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="item : ${sections}">
+                                <td th:text="${item.id}"></td>
+                                <td>
+                                    <a th:text="${item.name}" th:href="'/admin/section/' + ${item.id}"></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</th:block>

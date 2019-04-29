@@ -1,0 +1,39 @@
+<th:block layout:decorate="~{admin/layouts/fullPageLayout}">
+
+    <div layout:fragment="content" class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Brands</h3>
+                </div>
+                <div class="box-body">
+                    <a href="/admin/brand/addBrand" class="btn btn-primary">Add new brand</a>
+                    <br/>
+                    <br/>
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Image</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="item : ${brands}">
+                                <td th:text="${item.id}"></td>
+                                <td>
+                                    <a th:text="${item.name}" th:href="'/admin/brand/' + ${item.id}"></a>
+                                </td>
+                                <td>
+                                    <img width="150" th:if="${item.image}" th:src="'/upload/brand/' + ${item.image}" />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</th:block>

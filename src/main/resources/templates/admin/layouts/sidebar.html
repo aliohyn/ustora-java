@@ -1,0 +1,29 @@
+<!-- Left side column. contains the logo and sidebar -->
+
+<aside class="main-sidebar" xmlns:th="http://www.w3.org/1999/html">
+
+    <section class="sidebar">
+        <ul class="sidebar-menu" data-widget="tree">
+            <li th:each="item : ${adminMenu}" th:classappend="${item.hasChildren} ? 'treeview  menu-open' : ''" th:class="${item.getSelected()} ? 'active' : ''">
+                <th:block th:if="${item.depthLevel == 1}">
+                    <a th:href="${item.hasChildren} ? 'javascript:void(0)' : ${item.link}">
+                        <i class="fa" th:classappend="${item.getIcon()} ? ${item.getIcon()} : 'fa-circle'"></i>
+                        <span th:text="${item.name}"></span>
+
+                        <span th:if="${item.hasChildren}" class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                </th:block>
+                <ul th:if="${item.hasChildren}" class="treeview-menu" style="display: block;">
+                    <li th:each="child : ${adminMenu}" th:if="${child.parent}">
+                        <a th:if="${child.parent.getId() == item.getId()}" th:href="${child.link}"><i class="fa fa-circle-o"></i>
+                            <th:block th:text="${child.name}"></th:block>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+</aside>

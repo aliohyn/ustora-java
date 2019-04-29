@@ -1,0 +1,20 @@
+<div th:replace="~{ustora/layouts/header}"></div>
+
+<div class="single-product-area">
+    <div class="zigzag-bottom"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="product-content-right">
+                    <div class="woocommerce">
+                        <h2>Thanks!</h2>
+                        <p>Your order number <th:block th:text="${order.id}">@ViewBag.OrderId</th:block></p>
+                        <p>We'll ship your goods as soon as possible.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="~{ustora/layouts/footer}"></div>

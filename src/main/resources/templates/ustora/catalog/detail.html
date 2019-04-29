@@ -1,0 +1,53 @@
+<div th:replace="~{ustora/layouts/header}"></div>
+
+<div class="single-product-area">
+    <div class="zigzag-bottom"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="product-content-right">
+                    <div class="product-breadcroumb">
+                        <a href="/">Home</a>
+                        <a href="/catalog/">Shop Page</a>
+                        <a th:text="${product.name}" href="javascript:void(0);"></a>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="product-images">
+                                <div class="product-main-img">
+                                    <img th:src="'/upload/product/' + ${product.image}" th:alt="${product.name}">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-8">
+                            <div class="product-inner">
+                                <h2 class="product-name" th:text="${product.name}"></h2>
+                                <div class="product-inner-price">
+                                    <ins th:text="${product.price}"></ins>
+                                    <del th:if="${product.oldPrice}" th:text="${product.oldPrice}"></del>
+                                </div>
+                                <div class="cart">
+                                    <a href="javascript:void(0)" class="add_to_cart_button" data-product_id="@Model.DetailProduct.ProductId">Add to cart</a>
+                                </div>
+                                <br>
+                                <br>
+                                <div class="product-inner-category">
+                                    <p>Category: <a th:text="${product.section?.name}" href=""></a></p>
+                                </div>
+
+                                <div>
+                                    <h2>Product Description</h2>
+                                    <p th:text="${product.description}"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="~{ustora/layouts/footer}"></div>

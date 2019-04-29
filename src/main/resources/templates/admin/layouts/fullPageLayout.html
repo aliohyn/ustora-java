@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head th:include="admin/layouts/head"></head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+    <header th:include="admin/layouts/header" class="main-header"></header>
+
+    <th:block th:include="~{admin/layouts/sidebar}"></th:block>
+
+
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>
+                Page Header
+                <small>Optional description</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+                <li class="active">Here</li>
+            </ol>
+        </section>
+
+        <section class="content">
+            <th:block layout:fragment="content"></th:block>
+        </section>
+
+    </div>
+
+    <footer th:include="admin/layouts/footer" class="main-footer"></footer>
+
+    <div class="control-sidebar-bg"></div>
+</div>
+
+<!-- jQuery 3 -->
+<script th:src="@{/admin/markup/bower_components/jquery/dist/jquery.min.js}"></script>
+<!-- Bootstrap 3.3.7 -->
+<script th:src="@{/admin/markup/bower_components/bootstrap/dist/js/bootstrap.min.js}"></script>
+<!-- AdminLTE App -->
+<script th:src="@{/admin/markup/dist/js/adminlte.min.js}"></script>
+
+</body>
+</html>
