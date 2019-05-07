@@ -11,7 +11,7 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<CartLine> cart;
 
     private String name;

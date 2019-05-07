@@ -29,7 +29,7 @@
                                     <del th:if="${product.oldPrice}" th:text="${product.oldPrice}"></del>
                                 </div>
                                 <div class="cart">
-                                    <a href="javascript:void(0)" class="add_to_cart_button" data-product_id="@Model.DetailProduct.ProductId">Add to cart</a>
+                                    <a th:href="'/cart/add/' + ${product.id}" class="add_to_cart_button">Add to cart</a>
                                 </div>
                                 <br>
                                 <br>
