@@ -1,61 +1,63 @@
-<div th:replace="~{ustora/layouts/header}"></div>
+<th:block layout:decorate="~{ustora/layouts/fullPageLayout}">
+    <th:block layout:fragment="content">
 
-<div class="single-product-area">
-    <div class="zigzag-bottom"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="product-content-right">
-                    <div class="woocommerce">
-                        <form class="checkout" th:action="@{/order}" method="post">
-                            <h3>Billing Details</h3>
-                            <div asp-validation-summary="All" class="text-danger"></div>
-                            <div id="customer_details" class="col2-set">
-                                <div class="col-1">
-                                    <div class="woocommerce-billing-fields">
-                                        <p class="form-row form-row-first">
-                                            <label>Name</label>
-                                            <input type="text" name="name" class="input-text">
-                                        </p>
-                                        <p class="form-row form-row-first">
-                                            <label>Street</label>
-                                            <input type="text" name="street" class="input-text">
-                                        </p>
-                                        <p class="form-row form-row-first">
-                                            <label>Home</label>
-                                            <input type="text" name="home" class="input-text">
-                                        </p>
-                                        <div class="clear"></div>
-                                    </div>
-                                </div>
+        <div class="single-product-area">
+            <div class="zigzag-bottom"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="product-content-right">
+                            <div class="woocommerce">
+                                <form class="checkout" th:action="@{/order}" method="post">
+                                    <h3>Billing Details</h3>
+                                    <div asp-validation-summary="All" class="text-danger"></div>
+                                    <div id="customer_details" class="col2-set">
+                                        <div class="col-1">
+                                            <div class="woocommerce-billing-fields">
+                                                <p class="form-row form-row-first">
+                                                    <label>Name</label>
+                                                    <input type="text" name="name" class="input-text">
+                                                </p>
+                                                <p class="form-row form-row-first">
+                                                    <label>Street</label>
+                                                    <input type="text" name="street" class="input-text">
+                                                </p>
+                                                <p class="form-row form-row-first">
+                                                    <label>Home</label>
+                                                    <input type="text" name="home" class="input-text">
+                                                </p>
+                                                <div class="clear"></div>
+                                            </div>
+                                        </div>
 
-                                <div class="col-2">
-                                    <div class="woocommerce-shipping-fields">
-                                        <div class="shipping_address" style="display: block;">
-                                            <p class="form-row form-row-first">
-                                                <label>Phone</label>
-                                                <input type="text" name="phone" class="input-text">
-                                            </p>
-                                            <p class="form-row form-row-first">
-                                                <label>Country</label>
-                                                <input type="text" name="country" class="input-text">
-                                            </p>
-                                            <p class="form-row form-row-first">
-                                                <label>City</label>
-                                                <input type="text" name="city" class="input-text">
-                                            </p>
-                                            <div class="clear"></div>
+                                        <div class="col-2">
+                                            <div class="woocommerce-shipping-fields">
+                                                <div class="shipping_address" style="display: block;">
+                                                    <p class="form-row form-row-first">
+                                                        <label>Phone</label>
+                                                        <input type="text" name="phone" class="input-text">
+                                                    </p>
+                                                    <p class="form-row form-row-first">
+                                                        <label>Country</label>
+                                                        <input type="text" name="country" class="input-text">
+                                                    </p>
+                                                    <p class="form-row form-row-first">
+                                                        <label>City</label>
+                                                        <input type="text" name="city" class="input-text">
+                                                    </p>
+                                                    <div class="clear"></div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                    <input type="submit" value="Place order" class="button alt">
+                                </form>
                             </div>
-                            <input type="submit" value="Place order" class="button alt">
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
 
-<div th:replace="~{ustora/layouts/footer}"></div>
+    </th:block>
+</th:block>

@@ -1,44 +1,46 @@
-<div th:replace="~{ustora/layouts/header}"></div>
+<th:block layout:decorate="~{ustora/layouts/fullPageLayout}">
+    <th:block layout:fragment="content">
 
-<div class="single-product-area">
-    <div class="zigzag-bottom"></div>
-    <div class="container">
-        <div class="row">
-            <div th:each="item : ${products}" class="col-md-3 col-sm-6">
-                <div class="single-shop-product">
-                    <div class="product-upper">
-                        <a th:href="'/catalog/' + ${item.id}">
-                            <img th:src="'/upload/product/' + ${item.image}" th:alt="${item.name}">
-                        </a>
-                    </div>
-                    <h2><a th:href="'/catalog/' + ${item.id}" th:text="${item.name}"></a></h2>
-                    <div class="product-carousel-price">
-                        <ins th:text="${item.price}"></ins>
-                        <del th:if="${item.oldPrice}" th:text="${item.OldPrice}"></del>
-                    </div>
+        <div class="single-product-area">
+            <div class="zigzag-bottom"></div>
+            <div class="container">
+                <div class="row">
+                    <div th:each="item : ${products}" class="col-md-3 col-sm-6">
+                        <div class="single-shop-product">
+                            <div class="product-upper">
+                                <a th:href="'/catalog/' + ${item.id}">
+                                    <img th:src="'/upload/product/' + ${item.image}" th:alt="${item.name}">
+                                </a>
+                            </div>
+                            <h2><a th:href="'/catalog/' + ${item.id}" th:text="${item.name}"></a></h2>
+                            <div class="product-carousel-price">
+                                <ins th:text="${item.price}"></ins>
+                                <del th:if="${item.oldPrice}" th:text="${item.OldPrice}"></del>
+                            </div>
 
-                    <div class="product-option-shop">
-                        <a class="add_to_cart_button" rel="nofollow" th:href="'/cart/add/' + ${item.id}">Add to cart</a>
+                            <div class="product-option-shop">
+                                <a class="add_to_cart_button" rel="nofollow" th:href="'/cart/add/' + ${item.id}">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="product-pagination text-center">
+                            <nav>
+                                <ul class="pagination">
+                                    <li th:each="item : ${pagination.getPagination()}"
+                                        class="paginate_button"
+                                        th:classappend="${item} == ${pagination.curPageNumber} ? 'active' : ''">
+                                        <a th:href="'/catalog?page=' + ${item}" th:text="${item}"></a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="product-pagination text-center">
-                    <nav>
-                        <ul class="pagination">
-                            <li th:each="item : ${pagination.getPagination()}"
-                                class="paginate_button"
-                                th:classappend="${item} == ${pagination.curPageNumber} ? 'active' : ''">
-                                <a th:href="'/catalog?page=' + ${item}" th:text="${item}"></a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
-<div th:replace="~{ustora/layouts/footer}"></div>
+    </th:block>
+</th:block>
