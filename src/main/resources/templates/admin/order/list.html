@@ -1,0 +1,56 @@
+<th:block layout:decorate="~{admin/layouts/fullPageLayout}">
+
+    <div layout:fragment="content" class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Catalog items</h3>
+                </div>
+                <div class="box-body">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Phone</th>
+                            <th>City</th>
+                            <th>Country</th>
+                            <th>Street</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="item : ${orders}">
+                                <td>
+                                    <a th:text="${item.id}" th:href="'/admin/order/' + ${item.id}"></a>
+                                </td>
+                                <td th:text="${item.name}"></td>
+                                <td th:text="${item.phone}"></td>
+                                <td th:text="${item.city}"></td>
+                                <td th:text="${item.country}"></td>
+                                <td th:text="${item.street}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="row">
+                        <div class="col-sm-5 dataTables_wrapper">
+                            <div class="dataTables_info" th:text="'Showing ' + ${pagination.getShowItemsFrom()} + ' to ' + ${pagination.getShowItemsTo()} + ' of ' + ${pagination.getAllItemsCount()} + ' entries'" ></div>
+                        </div>
+                        <div class="col-sm-7">
+                            <div class="dataTables_paginate paging_simple_numbers">
+                                <ul class="pagination">
+                                    <li th:each="item : ${pagination.getPagination()}"
+                                        class="paginate_button"
+                                        th:classappend="${item} == ${pagination.curPageNumber} ? 'active' : ''">
+                                        <a th:href="'/admin/product?page=' + ${item}" th:text="${item}"></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</th:block>

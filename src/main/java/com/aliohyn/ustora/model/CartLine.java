@@ -59,4 +59,13 @@ public class CartLine {
     public int hashCode() {
         return Objects.hash(id, product, quantity);
     }
+
+    @Override
+    public String toString() {
+        return "CartLine{" +
+                "id=" + id +
+                ", product=" + product +
+                ", quantity=" + quantity +
+                '}';
+    }
 }

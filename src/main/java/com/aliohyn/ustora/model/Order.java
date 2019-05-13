@@ -85,4 +85,17 @@ public class Order {
         this.home = home;
     }
 
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", cart=" + cart +
+                ", name='" + name + '\'' +
+                ", phone='" + phone + '\'' +
+                ", city='" + city + '\'' +
+                ", country='" + country + '\'' +
+                ", street='" + street + '\'' +
+                ", home='" + home + '\'' +
+                '}';
+    }
 }
